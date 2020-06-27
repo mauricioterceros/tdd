@@ -3,12 +3,19 @@
 
 module.exports = {
   "default e2e tests": browser => {
+    ///
+    /// We did this in clases
+    ///
     browser
       .init()
-      .waitForElementVisible("#app")
-      .assert.elementPresent(".hello")
+      .waitForElementVisible("#app") // *[@id="app"]
+      .assert.elementPresent(".hello") // [@id="app"]/div[2]/div/h1   !==  [@id="app"]/div[3]/div/h1
       .assert.containsText("h1", "Welcome to Your Vue.js App")
       .assert.elementCount("img", 1)
+      .setValue("input[id=input-to-edit]", "probrando un valor")
+      .pause(3000)
+      .click("#btn-show-hi")
+      .pause(3000)
       .end();
   },
 

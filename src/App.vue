@@ -1,9 +1,12 @@
 <template>
   <div id="app">
+    <input id="input-to-edit" />
+    <button id="btn-show-hi" onclick="alert('HI')">SAY HI</button>
     <div id="nav">
-      <router-link to="/">Home</router-link> |
+      <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>
     </div>
+    <div></div>
     <router-view />
   </div>
 </template>
