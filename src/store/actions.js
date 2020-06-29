@@ -1,7 +1,7 @@
 "use strict";
 
-const addAgenda = () => {
-    console.log("added");
+const addAgenda = ({ commit }, agenda) => {
+    commit('addAgenda', agenda);
 };
 
 const addAppointment = () => {

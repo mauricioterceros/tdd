@@ -1,9 +1,10 @@
 "use strict";
 
-const addAgenda = () => {
+const addAgenda = (state, agenda) => {
 	// if you see
 	// this.state >>> WRONG >>> please remove and replace only by param state
 	console.log("added");
+	state.agendas.push(agenda);
 };
 
 const addAppointment = () => {

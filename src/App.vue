@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <input id="input-to-edit" />
-    <button id="btn-show-hi" onclick="alert('HI')">SAY HI</button>
+    <button id="btn-show-hi" @click="onAddAgenda">SAY HI</button>
     <div id="nav">
       <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>
@@ -10,6 +10,29 @@
     <router-view />
   </div>
 </template>
+
+<script>
+import { mapActions } from "vuex";
+
+export default {
+  name: "App",
+
+  methods: {
+    ...mapActions(["addAgenda"]),
+
+    onAddAgenda() {
+      this.addAgenda({
+        agendaId: "ANG-0001",
+        name: "Work",
+        description: "My Agenda to manage my workd",
+        startHour: "10:00",
+        endHour: "16:00",
+        appointments: []
+      });
+    }
+  }
+};
+</script>
 
 <style>
 #app {

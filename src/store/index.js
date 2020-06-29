@@ -1,5 +1,9 @@
 import Vue from "vue";
 import Vuex from "vuex";
+
+// https://www.npmjs.com/package/vuex-persistedstate
+import createPersistedState from "vuex-persistedstate";
+
 import actions from "./actions";
 import mutations from "./mutations";
 import getters from "./getters";
@@ -20,7 +24,7 @@ const state = {
         // Iterate to simulate by clonning
         // recursiveAppointments.filter(app => app.agendaId === this.agendaId)
       ]
-    },
+    }
     // more agendas
   ],
   scheduledAppointments: [
@@ -67,6 +71,11 @@ const state = {
 };
 
 export default new Vuex.Store({
+  plugins: [
+    createPersistedState({
+      paths: ["agendas"]
+    })
+  ],
   state,
   actions,
   mutations,
